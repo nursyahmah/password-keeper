@@ -27,7 +27,7 @@ class AddColumnUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            dropIfColumnExists('profile_picture');
+            dropIfExist('profile_picture');
         });
     }
 }
