@@ -3,8 +3,8 @@
 @section('content')
     @include('layouts.headers.cards')
     
-    <div class="container-fluid mt--7">
-        <div style="width: 18rem;">
+    <div class="container-fluid mt-5">
+        <div style="width: 18rem;" onclick="windows.locatino.href='#'">
             <div class="card card-stats mb-4 mb-lg-0">
                 <div class="card-body">
                     <div class="row">
