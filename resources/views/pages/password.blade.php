@@ -35,7 +35,7 @@
                         </div>
                     </th>
                     <td class="budget">
-                        passwordSecret
+                        <p style="font-size: 24px;">.............</p>
                     </td>
                     <td>
                         <span class="badge badge-dot mr-4">
@@ -46,7 +46,8 @@
                     <td>
                     <!-- Action Button -->
                         <div class="btn-group">
-                        
+                            <a href="#" class="btn btn-sm btn-success" title="show password"><i class="far fa-eye"></i></a>
+                            <a href="#" class="btn btn-sm btn-danger" title="delete password"><i class="far fa-trash-alt"></i></a>
                         </div>
                     <!-- Action Button -->
                     </td>
