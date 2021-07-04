@@ -9,6 +9,8 @@
 
 <div class="container-fluid mt-5">
 
+<a href="" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus mr-2"></i>Add New Password</a>
+
 <div class="table-responsive">
     <div>
         <table class="table align-items-center">
@@ -46,7 +48,7 @@
                     <td>
                     <!-- Action Button -->
                         <div class="btn-group">
-                            <a href="#" class="btn btn-sm btn-success" title="show password"><i class="far fa-eye"></i></a>
+                            <a href="{{ route('password.create') }}" class="btn btn-sm btn-success" title="show password"><i class="far fa-eye"></i></a>
                             <a href="#" class="btn btn-sm btn-danger" title="delete password"><i class="far fa-trash-alt"></i></a>
                         </div>
                     <!-- Action Button -->
@@ -58,5 +60,43 @@
     </div>
     
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      {{Form::open(['route' => 'password.store', 'user_id' => Auth::user()->id, 'method' => 'POST', 'enctype' => 'multipart/form-data'])}}
+
+        <div class="form-group">
+          <label for="">What password is this for?</label>
+          <input type="text" name="name" class="form-control" placeholder="name of the password. Eg: Netflix, Gmail">
+        </div>
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="password" name="password" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="">Status</label>
+          <select name="status" id="" class="form-control main-select2">
+            <option value="1">Active</option>
+            <option value="0">Not Active</option>
+          </select>
+        </div>
+      {{ Form::close()}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection

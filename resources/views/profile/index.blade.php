@@ -22,15 +22,13 @@
             <div class="col-md-6" style="justify-content:center">
                 
                     <div style="text-align:center;overflow:hidden;">
-                        <img src="{{ asset($user->profile_picture) ?? '' }}" alt="profile_picture" style="height:200px;  max-width: 200px; min-width: 200px; border-radius:50%;object-fit: cover;">
+                        <img src="{{ asset($user->profile_picture) ?? '' }}" alt="profile_picture" style="max-height:200px;  min-width: 200px; border-radius:50%;object-fit: cover;">
                     </div>
-                
-                
                 <input type="file" name="profile_picture" id="" class="form-control">
             </div>
         </div>
         <div style="text-align:center;" class="mt-5">
-            <button class="btn btn-sm btn-success" type="submit">Submit</button>
+            <button class="btn btn-sm btn-success" type="submit"><i class="fas fa-check mr-2"></i>Submit</button>
         </div>
         {{ Form::close() }}
         

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnUsersTable extends Migration
+class CreatePasswordTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class AddColumnUsersTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('passwords', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('password');
+            $table->timestamps();
+        });
+
         Schema::table('users', function (Blueprint $table) {
-            $table->string('profile_picture')->after('email')->nullable();
+            $table->string('secret_word')->after('email')->nullable();
         });
     }
 
@@ -26,8 +32,10 @@ class AddColumnUsersTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('passwords');
         Schema::table('users', function (Blueprint $table) {
-            dropColumn('profile_picture');
+            $table->dropColumn('secret_word');
         });
+
     }
 }

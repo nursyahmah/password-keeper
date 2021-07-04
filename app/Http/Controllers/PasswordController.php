@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Models\User;
 
 class PasswordController extends Controller
 {
@@ -14,7 +16,8 @@ class PasswordController extends Controller
     public function index()
     {
         //
-        return view('pages.password');
+        $user = User::find(Auth::user()->id);
+        return view('pages.password', compact('user'));
     }
 
     /**
@@ -25,6 +28,7 @@ class PasswordController extends Controller
     public function create()
     {
         //
+        return view('pages.password-view');
     }
 
     /**
@@ -57,7 +61,7 @@ class PasswordController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
